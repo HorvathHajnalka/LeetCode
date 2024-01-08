@@ -5,7 +5,6 @@ You are given two strings word1 and word2. Merge the strings by adding letters i
 Return the merged string.
 
 
-
 Example 1:
 
 Input: word1 = "abc", word2 = "pqr"

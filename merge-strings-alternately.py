@@ -5,7 +5,6 @@ class Solution(object):
         :type word2: str
         :rtype: str
         """
-        
         merge = ""
         firstbigger = False
         if len(word1) > len(word2):
