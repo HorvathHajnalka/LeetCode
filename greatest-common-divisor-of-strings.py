@@ -9,6 +9,7 @@ class Solution(object):
         idx = 0
         maxlength = 0
         intdivisors = []
+        
         if len(str1) > len(str2):
             for i in range(1, len(str1) - len(str2)+1):
                 if len(str1) % i == 0 and len(str2) % i == 0:
