@@ -1,0 +1,29 @@
+Given an array of integers nums, return the number of good pairs.
+
+A pair (i, j) is called good if nums[i] == nums[j] and i < j.
+
+  [ 1, 2, 1, 3, 3, 3, 1 ]
+     .       .                .
+
+occ = {(1:3),(2:1), (3,3)}
+
+3 1-s -> 3*2 pairs BUT we have to halve it 
+
+def goodPairs( nums):
+	occ = dict()
+        for i in range(0, len(nums)):
+            if nums[i] in occ:
+                occ[nums[i]] += 1
+            else:
+                occ[nums[i]] = 1
+        no_of_pairs = 0
+        for k in occ:
+            no_of_pairs += ((occ[k] *(occ[k]-1)) /2)
+        return no_of_pairs
+
+occ = {
+	1 : 3
+	2 : 1
+	3 : 3
+}
+no_of_pairs = 3 + 0 + 3 = 6
