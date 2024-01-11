@@ -1,0 +1,21 @@
+Given an array nums of size n, return the majority element.
+
+The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.
+
+is there only one m. e. always, / it can happen that there exists two element with the highest no of appears?
+it cannot happen that we have an empty array as an input?
+sorted?
+
+def getMajority(nums):
+	occ = dict()
+	for num in nums:
+		if num in occ:
+			occ[num] += 1
+		else:
+			occ[num] = 1
+	goal = len(nums) // 2
+	for num in occ:
+		if occ[num] > goal:
+			return num
+	return float(-inf)
+	
