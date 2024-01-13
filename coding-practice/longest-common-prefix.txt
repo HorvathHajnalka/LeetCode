@@ -1,0 +1,40 @@
+Write a function to find the longest common prefix string amongst an array of strings.
+
+If there is no common prefix, return an empty string "".
+
+invalid inputs?
+prefix string?
+
+strings = [ abc, abd, abcd ]
+
+longest_common_prefix = ab
+
+n*m time, n= len(array), m = len(longest_common_prefix)
+
+def longest_common_prefix(strings):
+	return_value = []
+        for letter in strs[0]:
+            return_value.append(letter)
+
+	for word in strings:
+		if len(return_value) > len(word):
+			n = len(word)
+		else:
+			n = len(return_value)
+		i = 0
+		while i < n and word[i] == return_value[i]:
+			i+= 1
+		if i != len(return_value):
+			del return_value[i:]
+	return ''.join(return_value)
+
+strings = [ abc, abd, abcd ]
+return_value = [a,b]
+word = abcd
+n = 2
+i = 2
+ab
+			
+		
+		
+
