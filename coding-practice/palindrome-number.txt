@@ -1,0 +1,29 @@
+Given an integer x, return true if x is a palindrome, and false otherwise.
+
+anna
+123321
+12321
+1
+-121
+no < 0 -> f
+1,2,3,2,1
+    .     .
+
+def palindromeInt(x):
+if x < 0:
+            return False
+        power = 0
+        result = 1
+        while result != 0:
+            result = x // 10 ** power
+            power += 1
+        power -= 2
+        while x != 0:
+            left = x // 10 ** power
+            right = x % 10
+            if left != right:
+                return False
+            x =( x % 10**power) // 10
+            power -= 2
+        return True
+
