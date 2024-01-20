@@ -1,0 +1,23 @@
+Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
+
+unordered
+[] -> x
+nums = [ 1,2,1,2,1,2,3] , k= 2, return = 1, 2
+
+def kMostFrequentNumber(nums, k):
+result = []
+	frequency_dict = dict()
+	for num in nums:
+		if num in frequencies:
+			frequency_dict[num] += 1
+		else:
+			frequency_dict[num] = 1
+	frequency_arr = [ [] for x in  range(0, len(nums) + 1 ]
+	for num in frequency_dict:
+		frequency_arr[frequency_dict[num]].append(num)
+	for nums in frequency_arr:
+		for num in nums:
+			if k > 0:
+				result.append(num)
+			k -= 1
+	return result
