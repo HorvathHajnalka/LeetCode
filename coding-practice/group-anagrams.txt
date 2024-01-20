@@ -1,0 +1,31 @@
+Given an array of strings strs, group the anagrams together. You can return the answer in any order.
+
+An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+
+strs = [ ‘abc’, ‘bca’, ‘cba’, ‘abcd’]
+return = [ [‘abc’, ‘bca’, ‘cba’.], [‘abcd’]]
+
+aphabeticals only ?
+
+def anagrams(strs):
+	anagram_dict = dict()
+	for word in strs:
+		sorted_word = ''.join(sorted(word))
+		if sorted_word in anagram_dict:
+			anagram_dict[sorted_word].append(word)
+		else:
+			anagram_dict[sorted_word] = [word]
+	
+	result = [ ]
+	for words in anagram_dict.values():
+		result.append(words)
+	
+	return result
+
+strs = [ ‘abc’, ‘bca’, ‘cba’, ‘abcd’]
+anagram_dict = {
+	‘abc’ =[ ‘abc’, ‘bca’,’cba’ ] ,
+	‘abcd’ = [abcd’]
+}
+sorted_word = ‘abcd’
+result = [ [ ‘abc’, ‘bca’,’cba’ ] , [abcd’] ]
