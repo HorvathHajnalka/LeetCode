@@ -1,0 +1,43 @@
+Given an array of strings words and an integer k, return the k most frequent strings.
+
+Return the answer sorted by the frequency from highest to lowest. Sort the words with the same frequency by their lexicographical order.
+
+k = 0? x
+‘’ ? x
+[] ? x
+lower/upper ? x
+invalid inputs? x
+
+words = [‘abc’, ‘bca’, ‘abc’, ‘bca’, ‘a’] k = 2
+return= [‘abc’, ‘bca’]
+
+def topKFrequentWords(words, k):
+
+	frequency_dict = dict()
+	for word in words:
+		if word in frequency_dict:
+			 frequency_dict[word] += 1
+		else:
+			frequency_dict[word] = 1
+
+	frequency_array = []
+	for i in range(0, len(words)):
+		frequency_array.append([])
+	
+	for word in frequency_dict:
+		frequency_array[frequency_dict[word]].append(word)
+	
+	result = []
+	for words in frequency_array.reverse():
+		for word in words.sort():
+			result.append(word)
+			if len(result) == k:
+				return result
+
+frequency_dict = {
+	‘abc’ = 2,
+	‘bca’ = 2
+	‘a’ = 1
+}
+frequency_array = [ [ ] , [‘a’ ] , [‘abc’ , ‘bca’] , [ ] , [ ] ]
+result = [ ‘abc’ , ‘bca’ ]  <-
