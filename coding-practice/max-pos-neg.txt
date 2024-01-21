@@ -1,0 +1,53 @@
+Given an array nums sorted in non-decreasing order, return the maximum between the number of positive integers and the number of negative integers.
+
+In other words, if the number of positive integers in nums is pos and the number of negative integers is neg, then return the maximum of pos and neg.
+Note that 0 is neither positive nor negative.
+
+nums = [ -5, -3, -1, -1, 0, 0, 0, 1, 2]
+pos_count = 2
+neg_count = 4
+return -> 4
+
+nums = [ -5, -3, -1, -1, 1, 2, 3,4]
+l = 4
+r = 3
+mid = 3
+
+def MaxPosNeg(nums):
+def binary_search(arr,target):
+l = 0
+r = len(arr) - 1
+while l <= r:
+mid = (l+r) // 2
+if arr[mid] == target:
+return mid
+elif arr[mid] < target:
+l = mid + 1
+else:
+r = mid -1
+return mid
+
+middle = binary_search(nums, 0) # first index of 0 / closest
+	if nums[middle] == 0:
+		i = middle
+		while i < len(array) and nums[i] == 0:
+i+= 1
+j = middle
+while j >= 0 and nums[j] == 0:
+j-= 1
+if i != len(nums):
+return max(len(nums[:j+1]), len(nums[i:]))
+else:
+	return len(nums[:j+1])
+	elif nums[middle] > 0:
+		return max(len(nums[:middle]), len(nums[middle:]))
+	else:
+return max(len(nums[:middle+1]), len(nums[middle+1:]))
+
+mid = 3
+max ( 4, 4)
+i = 7 , j = 3
+max( 4, 4)
+4 <-
+nums = [ -5, -3, -1, -1, 1, 2, 3, 4]
+middle = 5
