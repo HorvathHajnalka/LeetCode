@@ -1,0 +1,55 @@
+Given an array of distinct integers candidates and a target integer target, return a list of all unique combinations of candidates where the chosen numbers sum to target. You may return the combinations in any order.
+
+The same number may be chosen from candidates an unlimited number of times. Two combinations are unique if the 
+frequency
+ of at least one of the chosen numbers is different.
+
+The test cases are generated such that the number of unique combinations that sum up to target is less than 150 combinations for the given input.
+
+approaches
+
+candidates = [3,  5 , 6, 2, 4]
+target = 5
+combinations= [[5], [2,3]]
+
+candidates = [10, 20, 90, 50, 40, 60, 30, 80, 70 ]
+target = 100
+combinations = [90,10]
+		[10, 80, 10]
+		[10, 10, 70, 10]
+
+graph =                                                       100
+
+                                                  10, 20, 90, 50, 40, 60, 30, 80, 70
+				    |
+		 10, 20, 90, 50, 40, 60, 30, 80, 70
+			  -
+
+ 
+…
+negatives ?
+0 ?
+[1,4], [1,4, 0], [1,4,0,0]
+float ?
+invalid 
+no solution return ? -> []
+
+
+
+def combination(candidates, target):
+	res = []
+
+	def dfs(i, curr, total):
+		if total == target:
+			res.append(curr[:])
+			return
+		if total > target or i >= len(candidates):
+			return
+		curr.append(candidates[i])
+		dfs(i, curr, total += candidates[i]
+		curr.pop()
+		dfs(i+1, curr, total)
+	dfs(0, [], 0)
+	return result
+
+	

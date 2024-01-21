@@ -1,0 +1,48 @@
+Given two integer arrays nums1 and nums2, sorted in non-decreasing order, return the minimum integer common to both arrays. If there is no common integer amongst nums1 and nums2, return -1.
+
+Note that an integer is said to be common to nums1 and nums2 if both arrays have at least one occurrence of that integer.
+
+ 
+nums1 = [ 1, 1, 2, 3]
+nums2 = [ 2, 4, 6]
+
+def minimumCommonInt(nums1, nums2):
+	nums = dict()
+	for num in nums1:
+		nums[num] =[ ‘nums1’]
+	for num in nums2:
+		if num in nums:
+			nums[num].append[ ‘nums2’]
+		else:
+			nums[num] =[ ‘nums2’]
+	minvalue = float(‘inf’)
+	for num in nums:
+		if len(nums[num]) == 2:
+			if num < minvalue:
+				minvalue = num
+	if minvalue == float(‘inf’):
+		return -1
+	return minvalue
+
+nums1 = [ 1, 1, 2, 3]
+nums2 = [ 2, 4, 6]
+nums = {
+	1 : [‘nums1’],
+	2 : [‘nums1’, ‘nums2’]
+	3 : [‘nums1’]
+	4 : [‘nums2’]
+	6 : [‘nums2’]
+}
+minvalue = 2 <-
+
+def minCommonInt(nums1, nums2):
+	firstp = 0
+	secondp = 0
+	while firstp < len(nums1) and secondp < len(nums2):
+		if nums1[firstp] < nums2[secondp]:
+			firstp += 1
+		elif nums2[secondp] < nums1[firstp]:
+			secondp += 1
+	else:
+		return nums1[firstp]
+return -1
