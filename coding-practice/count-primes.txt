@@ -1,0 +1,38 @@
+Given an integer n, return the number of prime numbers that are strictly less than n.
+
+n = boundary
+prime = can be divided by itself and 1
+
+a number is divisible:
+2 -> even
+3 -> sum of its digits is divisible by 3
+5 -> the last digit 0/ 5
+7 -> ?
+11 -> 
+13 ->
+
+all numbers can be written as the product of prime no-s 
+
+
+def numberOfPrimes(n):
+	if n <= 2:
+		return 0
+	i = 2
+	primes = []
+	while i < n:
+		primeNo = True
+		j = 0
+		while j < len(primes) and primeNo == True
+			if i % primes[j] == 0:
+				primeNo = False
+			j += 1
+		if primeNo == True:
+			primes.append(i)
+		i += 1
+	return len(primes)
+
+n = 10
+i = 10
+j = 0
+primeNo = True
+primes = [ 2, 3, 5, 7 ] -> 4
