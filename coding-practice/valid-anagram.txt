@@ -1,0 +1,39 @@
+Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+
+An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+
+ 
+s = ‘abc’
+t = ‘cba’
+
+special chars
+‘’ ‘’
+‘a’ , ‘a’
+‘abc’ ‘abc’
+invalid
+
+def ValidAnagrams(s, t):
+	letters = dict()
+	for letter in s:
+		if letter in letters:
+			letters[letter] += 1
+		else:
+			letters[letter] = 1
+	for letter in t:
+		if letter in letters:
+			letters[letter] -= 1
+		else:
+			return False
+	for value in letters.values():
+		if value != 0:
+			return False
+	return True
+
+s = ‘abc’
+t = ‘cbab’
+letters = {
+	‘a’ = 0,
+	‘b’ = -1,
+	‘c’ = 0
+}
+-> False 
