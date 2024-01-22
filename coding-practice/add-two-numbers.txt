@@ -1,0 +1,76 @@
+You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
+
+linked_list1 = 1-> 2-> 4-> 1 = 1421
+linked_list2 = 2-˘> 3 = 32
+
+equal length
+boundary?
+linked_list1 = 0->none
+0-9
+return in reversed, each node 1 digit
+ 1421
++   39
+—-----
+  1460
+
+def sumLinkedLists(l1, l2):
+        carry = False
+        sum_list_head = ListNode()
+        sum_list = sum_list_head
+        while l1 and l2:
+            if not carry:
+                sum_node = l1.val + l2.val
+                
+            else:
+                sum_node = l1.val + l2.val + 1
+            if sum_node >= 10:
+                carry = True
+                sum_node -= 10
+            else:
+                carry = False
+            sum_list.next = ListNode(sum_node)
+            if sum_list_head == None:
+                sum_list_head = sum_list
+            sum_list = sum_list.next
+            l1 = l1.next
+            l2 = l2.next
+        while l1:
+            if not carry:
+                sum_node = l1.val 
+            else:
+                sum_node = l1.val + 1
+            if sum_node >= 10:
+                carry = True
+                sum_node -= 10
+            else:
+                carry = False
+            sum_list.next = ListNode(sum_node)
+            sum_list = sum_list.next
+            l1 = l1.next
+        while l2:
+            if not carry:
+                sum_node = l2.val 
+            else:
+                sum_node = l2.val + 1
+            if sum_node >= 10:
+                carry = True
+                sum_node -= 10
+            else:
+                carry = False
+            sum_list.next = ListNode(sum_node)
+            sum_list = sum_list.next
+            l2 = l2.next
+        if carry:
+            sum_list.next = ListNode(1)
+
+        return sum_list_head.next
+
+		
+
+l1 = 1 ->2 ->4 ->1
+l2 = 9->3
+       	               i
+carry = False
+sum_list = 0 -> 6 ->4->1 -> none
+sum_node = 4
+	
